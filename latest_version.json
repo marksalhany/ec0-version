@@ -1,11 +1,11 @@
 {
-  "latest_version": "1.3.2",
+  "latest_version": "1.3.3",
   "min_supported": "1.0.0",
   "release_date": "2025-07-23",
   "notes": "Stability sweep, polished changelog UI, startup banner, and explicit up-to-date notices.",
   "changelog": [
     {
-      "version": "1.3.2",
+      "version": "1.3.3",
       "date": "2025-07-23",
       "changes": [
         "Introduced a startup banner that instantly tells users if they’re current or need to ping Mark.",
