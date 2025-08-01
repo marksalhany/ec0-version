@@ -1,11 +1,20 @@
 {
-  "latest_version": "1.3.2",
+  "latest_version": "1.3.3",
   "min_supported": "1.0.0",
-  "release_date": "2025-07-23",
-  "notes": "Stability sweep, polished changelog UI, startup banner, and explicit up-to-date notices.",
-  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/1.3.2/EC0.File.Buddy.v1.3.2.zip",
+  "release_date": "2025-07-30",
+  "notes": "Public Rollout Build! Major stability and performance overhaul, with significant improvements to Cities/Speed processing.",
+  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/1.3.3/EC0.File.Buddy.v1.3.3.zip",
   "changelog": [
     {
+      "version": "1.3.3",
+      "date": "2025-07-30",
+      "changes": [
+        "Public Rollout Build: Major stability and performance overhaul to ensure a smooth experience across all office machines.",
+        "Significantly improved the smoothness and reliability of the Cities/Speed processing mode.",
+        "Refined UI feedback and internal logging to better capture performance metrics and potential hangs.",
+        "Future Work Focus: Continued speed enhancements, resolving minor file-loading lag on some systems, and collaborating with other offices to develop new, client-specific processing types."
+      ]
+	{
       "version": "1.3.2",
       "date": "2025-07-23",
       "changes": [
@@ -352,7 +361,7 @@
       "changes": [
         "Initial commit: skeletal idea to automate EC0 processing for IDAX.",
         "Read a single EC0, opened MTExec manually—no automation yet.",
-        "Laid down the folder structure and git repo."
+        "Laid down the folder structure."
       ]
     }
   ]
