@@ -1,15 +1,22 @@
 {
-  "latest_version": "1.3.4",
+  "latest_version": "1.3.4b",
   "min_supported": "1.0.0",
-  "release_date": "2025-08-08",
-  "notes": "Major improvements to multi-state file matching, responsive UI design, and expanded folder detection.",
-  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.3.4/EC0.File.Buddy.v1.3.4.zip",
+  "release_date": "2025-08-15",
+  "notes": "Minor speed and stability enhancements.",
+  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.3.4b/EC0.File.Buddy.v1.3.4b.zip",
   "changelog": [
     {
+      "version": "1.3.4b",
+      "date": "2025-08-15",
+      "changes": [
+        "Minor speed and stability enhancements."
+      ]
+    },
+	{
       "version": "1.3.4",
       "date": "2025-08-08",
       "changes": [
-        "Revolutionary file matching logic: Now intelligently handles California's 4-letter box names (TYPE, TOMB, PLAN, GOWN, etc.) and inconsistent naming formats.",
+        "Updated file matching logic: Now intelligently handles California's 4-letter box names (TYPE, TOMB, PLAN, GOWN, etc.) and inconsistent naming formats.",
         "Enhanced box extraction: If filename starts with 'BOX', takes the word after it; otherwise takes the first word. Handles all state formats seamlessly.",
         "Expanded EC0 folder detection: Now searches for 'ec0', 'ECO', 'EC0 Files', 'ECO Files' and all case variations, making setup more flexible.",
         "Responsive UI improvements: Added vertical resizing for Status and Site Parameters sections, scrollable main controls, and better small-screen support.",
@@ -31,7 +38,7 @@
       "version": "1.3.2",
       "date": "2025-07-23",
       "changes": [
-        "Introduced a startup banner that instantly tells users if they’re current or need to ping Mark.",
+        "Introduced a startup banner that instantly tells users if they have the most up-to-date version.",
         "Rewrote the changelog viewer: full-height scrollbar, newest-first, clean typography.",
         "Refined EC0 file-loading helpers and eliminated indentation weirdness in that block.",
         "General polish pass on image-matching tolerances and error screenshots for multi-PC rollout."
