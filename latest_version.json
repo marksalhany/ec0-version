@@ -12,6 +12,7 @@
 		"Refined CA EC0 filename parsing: if the first token is 3–5 letters and not 'BOX', use it as the box id (e.g., 'BRIG', 'GULF', 'NOVA'); if the name starts with 'BOX', use the next token; also recognizes embedded 'BOX <alnum> 0' anywhere in the name.",
 		"Dual-candidate matching: tries both the 3–5 letter code and the numeric/D-series token after 'BOX' (e.g., 'BRIG' and '56') so California projects match reliably regardless of tracker convention.",
 		"UI: Added 'Reset (Clear All)' button in the Action Buttons row (after Stop, before Help) to reinitialize the app—clears loaded tracker & project folder, wipes Site Parameters, resets internal flags, and empties Status.",
+		"Minor UI fixes: made it so entries on the site parameters frame will better stay aligned with their headers.",
 		"Stability polish: safer stop/cleanup of worker state on reset; clears pause/stop events; extra guards for missing/cleared widgets; scrollregion refresh for Site Parameters after table clears; slightly clearer status messages during reset."
 	  ]
 	},
