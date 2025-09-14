@@ -21,7 +21,7 @@
 		"UI: Added 'Reset (Clear All)' button in the Action Buttons row (after Stop, before Help) to reinitialize the app—clears loaded tracker & project folder, wipes Site Parameters, resets internal flags, and empties Status.",
 		"Stability polish: safer stop/cleanup of worker state on reset; clears pause/stop events; extra guards for missing/cleared widgets; scrollregion refresh for Site Parameters after table clears; slightly clearer status messages during reset."
 	  ]
-	}
+	},
 
 	{
       "version": "1.3.4",
