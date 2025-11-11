@@ -9,7 +9,7 @@
 	  "version": "1.3.5.5",
 	  "date": "2025-11-10",
 	  "changes": [
-		"Fixed an issue involving date adjustment when processing data on manual date processing. The # of days to adjust was sometimes_not calculating correctly when the data spanned multiple months. It should now always calculate the correct # of days to adjust.",
+		"Fixed an issue involving date adjustment when processing data on manual date processing. The # of days to adjust was sometimes_not calculating correctly when the data spanned multiple months. It should now always calculate the correct # of days to adjust."
 	  ]
 	},
 	{
