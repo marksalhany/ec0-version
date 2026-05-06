@@ -1,29 +1,47 @@
 {
-  "latest_version": "1.3.6",
+  "latest_version": "1.4.0",
   "min_supported": "1.0.0",
-  "release_date": "2025-11-10",
-  "notes": "Date adjustment fix and other minor bug fixes.",
-  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.3.6/EC0.File.Buddy.v1.3.6.zip",
-  "changelog": [   
-	{
-	  "version": "1.3.6",
-	  "date": "2025-11-10",
-	  "changes": [
-		"Fixed an issue involving date adjustment when processing data on manual date processing. The # of days to adjust was sometimes_not calculating correctly when the data spanned multiple months. It should now always calculate the correct # of days to adjust."
-	  ]
-	},
-	{
-	  "version": "1.3.5",
-	  "date": "2025-09-14",
-	  "changes": [
-		"Refined CA EC0 filename parsing: if the first token is 3–5 letters and not 'BOX', use it as the box id (e.g., 'BRIG', 'GULF', 'NOVA'); if the name starts with 'BOX', use the next token; also recognizes embedded 'BOX <alnum> 0' anywhere in the name.",
-		"Dual-candidate matching: tries both the 3–5 letter code and the numeric/D-series token after 'BOX' (e.g., 'BRIG' and '56') so California projects match reliably regardless of tracker convention.",
-		"UI: Added 'Reset (Clear All)' button in the Action Buttons row (after Stop, before Help) to reinitialize the app—clears loaded tracker & project folder, wipes Site Parameters, resets internal flags, and empties Status.",
-		"Minor UI fixes: made it so entries on the site parameters frame will better stay aligned with their headers.",
-		"Stability polish: safer stop/cleanup of worker state on reset; clears pause/stop events; extra guards for missing/cleared widgets; scrollregion refresh for Site Parameters after table clears; slightly clearer status messages during reset."
-	  ]
-	},
-	{
+  "release_date": "2026-05-06",
+  "notes": "Major UI overhaul plus cross-machine reliability and security hardening.",
+  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.4.0/EC0.File.Buddy.v1.4.0.zip",
+  "changelog": [
+    {
+      "version": "1.4.0",
+      "date": "2026-05-06",
+      "changes": [
+        "Complete UI overhaul: switched from Tkinter to a modern HTML interface running in pywebview. Cleaner look, better proportions, more responsive on every machine.",
+        "Site Parameters table rebuilt with fixed pixel widths so headers and cells stay aligned regardless of DPI or screen size. Added a column-hover glow effect and refined inline editors for dates, checkboxes, and dropdowns.",
+        "Added Recents dropdowns next to the Project Tracker URL and Project Folder fields. Trackers show the actual sheet name, not just the URL. Persists across launches.",
+        "New 'Get Started' stepper at the top walks through Load Tracker -> Load Folder -> Set Study Length -> Scan Files. Auto-hides once everything is set up.",
+        "Reworked the during-processing error prompt: 10-second countdown with Stop / Retry / Skip to Next buttons. Pops to the front of MTExec so it's actually visible. Auto-skips on timeout.",
+        "Site processing loops now support retry. Picking Retry reattempts the same site up to 3 times before moving on.",
+        "Cross-machine cursor reliability: mouse moves now verify their position via Win32 before clicking. Fixes the 'click fires before mouse arrives' issue on slower laptops.",
+        "Image recognition got a multi-scale fallback: if the standard match fails, it retries the template at 0.875x through 1.125x to handle DPI / font-scaling differences across machines.",
+        "Fixed the Date Processing dropdown so it actually populates the right options when you change study length.",
+        "Security hardening: credentials are encrypted on disk via Windows DPAPI after first launch (plaintext is wiped). All Python dependencies pinned to exact versions. External CDN references for fonts and icons removed (everything ships locally now). Input validation added across the JS-to-Python bridge.",
+        "Build hardening: only known file types get bundled (no stray dev files in releases), the .exe carries proper version metadata, UPX compression disabled (was triggering AV false positives), and the build script validates the version string before using it in shell.",
+        "Bundle trimming: dropped 85MB of unused Google API discovery JSONs, switched to opencv-python-headless, slimmed the bundled creature images."
+      ]
+    },
+    {
+      "version": "1.3.6",
+      "date": "2025-11-10",
+      "changes": [
+        "Fixed an issue involving date adjustment when processing data on manual date processing. The # of days to adjust was sometimes_not calculating correctly when the data spanned multiple months. It should now always calculate the correct # of days to adjust."
+      ]
+    },
+    {
+      "version": "1.3.5",
+      "date": "2025-09-14",
+      "changes": [
+        "Refined CA EC0 filename parsing: if the first token is 3–5 letters and not 'BOX', use it as the box id (e.g., 'BRIG', 'GULF', 'NOVA'); if the name starts with 'BOX', use the next token; also recognizes embedded 'BOX <alnum> 0' anywhere in the name.",
+        "Dual-candidate matching: tries both the 3–5 letter code and the numeric/D-series token after 'BOX' (e.g., 'BRIG' and '56') so California projects match reliably regardless of tracker convention.",
+        "UI: Added 'Reset (Clear All)' button in the Action Buttons row (after Stop, before Help) to reinitialize the app—clears loaded tracker & project folder, wipes Site Parameters, resets internal flags, and empties Status.",
+        "Minor UI fixes: made it so entries on the site parameters frame will better stay aligned with their headers.",
+        "Stability polish: safer stop/cleanup of worker state on reset; clears pause/stop events; extra guards for missing/cleared widgets; scrollregion refresh for Site Parameters after table clears; slightly clearer status messages during reset."
+      ]
+    },
+    {
       "version": "1.3.4",
       "date": "2025-08-08",
       "changes": [
@@ -59,7 +77,7 @@
       "version": "1.3.1",
       "date": "2025-07-21",
       "changes": [
-		 "Centralized load-dialog close detection to one helper; fewer magic sleeps, more deterministic waits."
+        "Centralized load-dialog close detection to one helper; fewer magic sleeps, more deterministic waits."
       ]
     },
     {
