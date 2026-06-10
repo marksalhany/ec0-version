@@ -1,10 +1,21 @@
 {
-  "latest_version": "1.4.0",
+  "latest_version": "1.4.1",
   "min_supported": "1.0.0",
-  "release_date": "2026-05-06",
-  "notes": "Major UI overhaul plus cross-machine reliability and security hardening.",
-  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.4.0/EC0.File.Buddy.v1.4.0.zip",
+  "release_date": "2026-06-10",
+  "notes": "Date adjustment arrow detection fix, per-machine image templates, and Activity Log copy support.",
+  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.4.1/EC0.File.Buddy.v1.4.1.zip",
   "changelog": [
+    {
+      "version": "1.4.1",
+      "date": "2026-06-10",
+      "changes": [
+        "Fixed date adjustment arrow detection during manual time range processing. The search zone was looking in the wrong spot relative to the date box, so the app paused on every site while the image search timed out before falling back. The zone is now anchored to the day arrows' actual position, the match is instant, and the per-site pause is gone.",
+        "Added per-machine image template support: the app now auto-prefers <name>_pc.png captures on ultrawide / high-res monitors and keeps preferring _Helix variants on Helix laptops. Applied to the left/right date arrows and the report profile labels.",
+        "Custom reports profile selection now image-matches the profile row (ALL STATS / SPEED STATS) inside a zone around the expected row and picks the nearest match, so rows sharing a label prefix can't be confused. The known-good fixed coordinate is kept as a fallback.",
+        "Activity Log text can now be highlighted and copied with the mouse, and a new Copy button copies the entire log to the clipboard in one click.",
+        "Image-rec diagnostics: when an arrow match fails, the app now saves a debug screenshot to logs/ and records the best correlation score, so template mismatches can be diagnosed instead of guessed at."
+      ]
+    },
     {
       "version": "1.4.0",
       "date": "2026-05-06",
