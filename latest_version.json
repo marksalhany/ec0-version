@@ -25,6 +25,7 @@
         "New install-location check on startup: if the app isn't running from inside C:\\IDAX it warns you, and if that folder doesn't exist it offers to create it.",
         "Fixed the stalls on machines where a template didn't match: the Datasets window sat ~5 seconds before Next and the Time range window sat ~15 seconds before the date adjustment. With all template variants tried, matches land on the first attempt, and the Auto Wrap search is capped at 5 seconds.",
         "Fixed the Auto Wrap keyboard fallback that could grab the wrong control after a slow image search (the mouse would drift up-left and Auto Wrap could get flipped to 'Aligned weeks'). The image search no longer steals focus from the Time range dialog, and the fallback now re-activates the dialog, verifies via Windows that it is actually on a dropdown before pressing anything, and refuses to continue if the control it found fails a sanity check.",
+        "Manual mode now sets Auto Wrap via keyboard navigation FIRST, with image match as the backup. The focused dropdown draws a selection highlight that defeats the image template, which was silently costing an image-search timeout at the Time range window on every machine. The keyboard path is instant, so that pause is gone everywhere.",
         "The version badge in the top-left of the app now always shows the real version (it was a second hand-edited copy stuck at 1.4.0; both it and the footer now come from the app itself)."
       ]
     },
