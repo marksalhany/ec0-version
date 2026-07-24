@@ -1,10 +1,21 @@
 {
-  "latest_version": "1.4.1",
+  "latest_version": "1.4.2",
   "min_supported": "1.0.0",
-  "release_date": "2026-06-10",
-  "notes": "Date adjustment arrow detection fix, per-machine image templates, and Activity Log copy support.",
-  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.4.1/EC0.File.Buddy.v1.4.1.zip",
+  "release_date": "2026-07-23",
+  "notes": "Smarter date month inference on long studies, plus multi-week study support (14/21/28 day studies process as automatic weekly report passes).",
+  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.4.2/EC0.File.Buddy.v1.4.2.zip",
   "changelog": [
+    {
+      "version": "1.4.2",
+      "date": "2026-07-23",
+      "changes": [
+        "Fixed a wrong-month date inference bug on long studies. When the end date sat about as many days after the set date as the same day number sat before it (a 15-day gap tie), the app could read e.g. 'Wed 22' as Jun 22 instead of Jul 22 and click the date 23 days in the wrong direction. Date inference now uses the weekday name shown next to the day number to pin down the month, floors end dates at the set date (no data can exist before the tubes went in), and breaks any remaining tie toward the later date.",
+        "Multi-week study support: Study Length now accepts 14, 21, and 28 days. Studies longer than 7 days are automatically processed as back-to-back weekly report passes in a single run (e.g. a 14-day study set 7/7 processes Jul 08 to Jul 15, then Jul 15 to Jul 22), each pass loading the same EC0 file(s) and adjusting the time range to its own week.",
+        "Weekly pass reports save with a week suffix on the processing name (e.g. '1_Main St NB Wk1', '... Wk2'), and the tracker sheet status only flips to READY TO PROCESS after the final week's pass saves.",
+        "Weekly passes force Manual date processing even if an aligned-days option is selected globally, since those shortcuts would ignore the per-week date ranges and produce identical reports for every week.",
+        "Odd lengths split cleanly too: a 10-day study runs as a 7-day pass plus a 3-day pass."
+      ]
+    },
     {
       "version": "1.4.1",
       "date": "2026-06-10",
