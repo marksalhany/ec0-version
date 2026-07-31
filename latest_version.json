@@ -1,10 +1,28 @@
 {
-  "latest_version": "1.4.2",
+  "latest_version": "1.4.3",
   "min_supported": "1.0.0",
-  "release_date": "2026-07-23",
-  "notes": "Smarter date month inference on long studies, plus multi-week study support (14/21/28 day studies process as automatic weekly report passes).",
-  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.4.2/EC0.File.Buddy.v1.4.2.zip",
+  "release_date": "2026-07-30",
+  "notes": "Big cross-machine reliability release: verified date adjustments, window-anchored date boxes, keyboard-first Auto Wrap, hardware-based Helix detection, and a larger default window. Fixes the Manual-mode failures seen on fleet laptops.",
+  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.4.3/EC0.File.Buddy.v1.4.3.zip",
   "changelog": [
+    {
+      "version": "1.4.3",
+      "date": "2026-07-30",
+      "changes": [
+        "Date adjustments are now VERIFIED silently: after clicking the day arrows the app reads the date box's text directly through Windows (no mouse movement, no clicking back, about a millisecond) and confirms it shows the target date. If a machine's controls don't answer that query, a one-time visible read-back on the first adjusted site covers it. If clicks don't land, the app hunts through candidate arrow positions, verifies each with a read, locks in the one that works for the rest of the run, and corrects the date. If the box still can't be brought to the target it errors loudly instead of silently saving a report with the wrong date range.",
+        "Begin/end date boxes are located by their fixed proportions of the Time range window instead of dead-reckoning from the Auto-Wrap dropdown, so the cursor lands on the right box on every machine and DPI. Every click that precedes a read is also focus-verified: if the click didn't land inside the control that has keyboard focus, it counts as a miss, so a stale read can never grab the previous box's text.",
+        "Manual mode sets Auto Wrap via keyboard navigation FIRST (instant, verified via Windows that it is on an actual dropdown), with image match as backup. Kills the 5-15 second pause at the Time range window on every machine, and the fallback can no longer grab the wrong control or flip Auto Wrap to 'Aligned weeks'.",
+        "Image recognition tries every bundled template variant (standard, _Helix, _pc) on every machine, best guess first, instead of betting on machine detection. Fixes fleet laptops whose Windows setup never says 'helix' and removes the 5s stall before Next on the Datasets window.",
+        "Manual date reading is self-correcting: if the cursor misses the begin/end date textbox, the app probes nearby spots until a real date comes back and logs the offset. If nothing is found it saves a debug screenshot to logs/ instead of failing blind.",
+        "The date read keystrokes are only sent when a text box actually has focus, with the Ctrl key held using explicit timing. On laggy machines a dropped Ctrl could send a bare 'a' into the Auto-Wrap dropdown and cycle it through the Aligned entries.",
+        "Much smarter machine detection: BIOS hardware model (the fleet's Dell Pro 16 Plus is recognized directly), battery check for laptop vs desktop, plus the old environment check. The startup log prints the full machine profile (detection result and why, hardware model, laptop or not, screen size) so machine-specific reports are diagnosable from a pasted log.",
+        "The app window now opens at 92% of the screen (capped at 1720x1080), so laptops open near-full without the scroll-and-maximize dance.",
+        "Picking the wrong folder level warns immediately: selecting the EC0/NS0 folder itself, or a pickup-date folder like 'Pickup 7-24', pops a reminder to select the ROOT project folder that contains the EC0 folder.",
+        "New install-location check on startup: if the app isn't running from inside C:\\IDAX it warns you, and if that folder doesn't exist it offers to create it.",
+        "MTExec relaunch after an error now waits up to 25s (was 10s) for slow cold starts on fleet laptops.",
+        "The version badge in the top-left of the app always shows the real version now (it was a second hand-edited copy stuck at 1.4.0; both it and the footer come from the app itself)."
+      ]
+    },
     {
       "version": "1.4.2",
       "date": "2026-07-23",
@@ -18,20 +36,7 @@
         "Odd lengths split cleanly too: a 10-day study runs as a 7-day pass plus a 3-day pass.",
         "New week schedule editor: multi-week sites show a WEEKS row right in the Site Parameters table with each weekly pass auto-calculated (Wk1 7/08 to 7/15, Wk2 7/15 to 7/22, ...). Every date has arrow nudgers and accepts typed dates like 7/18, for when tubes failed mid-study and got reset. Moving a week's begin slides the whole week; moving its end stretches it and drags any later chained weeks along, while weeks you have deliberately decoupled stay put. Includes AUTO/CUSTOM badge, RESET back to auto, and APPLY TO ALL to copy the schedule to every site with the same study length.",
         "Week passes edited in the schedule editor carry exact dates into processing, so no month guessing happens at all for those adjustments.",
-        "Fixed the per-site Study Length dropdown listing only 1-7 (the column options pushed from Python were overriding the new list).",
-        "Image recognition now tries every bundled template variant (standard, _Helix, _pc) on every machine instead of betting on machine detection. Fixes machines like a Helix laptop whose environment never says 'helix', which previously only ever tried the base template and failed on Next / Auto Wrap in Manual mode.",
-        "Manual date reading is now self-correcting: if the cursor misses the begin/end date textbox, the app probes a small grid of nearby spots until a real date comes back, and logs the offset it found so drift on that machine is visible. If nothing is found it saves a debug screenshot to logs/ instead of just failing with 'Could not read begin date'.",
-        "Much smarter machine detection: on top of the environment check (computer name / domain / OneDrive containing 'helix'), the app now reads the hardware model from the BIOS and checks for a battery. Any laptop with a normal-width screen is treated as a Helix laptop even when Windows was set up generically, so identical fleet laptops behave the same regardless of how they were configured. The startup log prints the full machine profile (detection result and why, hardware model, laptop or not, screen size).",
-        "New install-location check on startup: if the app isn't running from inside C:\\IDAX it warns you, and if that folder doesn't exist it offers to create it.",
-        "Fixed the stalls on machines where a template didn't match: the Datasets window sat ~5 seconds before Next and the Time range window sat ~15 seconds before the date adjustment. With all template variants tried, matches land on the first attempt, and the Auto Wrap search is capped at 5 seconds.",
-        "Fixed the Auto Wrap keyboard fallback that could grab the wrong control after a slow image search (the mouse would drift up-left and Auto Wrap could get flipped to 'Aligned weeks'). The image search no longer steals focus from the Time range dialog, and the fallback now re-activates the dialog, verifies via Windows that it is actually on a dropdown before pressing anything, and refuses to continue if the control it found fails a sanity check.",
-        "Manual mode now sets Auto Wrap via keyboard navigation FIRST, with image match as the backup. The focused dropdown draws a selection highlight that defeats the image template, which was silently costing an image-search timeout at the Time range window on every machine. The keyboard path is instant, so that pause is gone everywhere.",
-        "Date adjustments are now VERIFIED: after clicking the day arrows the app takes one quick look at the date box (about 0.2s) and confirms it shows the target date. If it doesn't, the app hunts for the arrow position that actually works on that machine, remembers it for the rest of the session, and corrects the date. If the box still can't be brought to the target, processing errors loudly instead of silently saving a report with the wrong date range (which dead-reckoned clicks could do on machines where the arrow offsets missed). Healthy machines pay only the single 0.2s look per adjusted date.",
-        "Begin/end date boxes are now located by their fixed proportions of the Time range window instead of dead-reckoning from the Auto-Wrap dropdown, so the cursor lands on the right box on every machine and DPI.",
-        "The date read keystrokes (Ctrl+A/Ctrl+C) are only sent when a text box actually has focus, and the modifier key is held with explicit timing. On laggy machines a dropped Ctrl could send a bare 'a' into the Auto-Wrap dropdown and cycle it through the Aligned entries.",
-        "Helix detection now includes the fleet's hardware model (Dell Pro 16 Plus), and the MTExec relaunch wait after an error was raised from 10s to 25s for slow cold starts.",
-        "Picking the wrong folder level now warns immediately: selecting the EC0/NS0 folder itself, or a pickup-date folder like 'Pickup 7-24', pops a reminder to select the ROOT project folder that contains the EC0 folder.",
-        "The version badge in the top-left of the app now always shows the real version (it was a second hand-edited copy stuck at 1.4.0; both it and the footer now come from the app itself)."
+        "Fixed the per-site Study Length dropdown listing only 1-7 (the column options pushed from Python were overriding the new list)."
       ]
     },
     {
