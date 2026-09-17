@@ -1,10 +1,24 @@
 {
-  "latest_version": "1.4.3",
+  "latest_version": "1.4.4",
   "min_supported": "1.0.0",
-  "release_date": "2026-07-30",
-  "notes": "Big cross-machine reliability release: verified date adjustments, window-anchored date boxes, keyboard-first Auto Wrap, hardware-based Helix detection, and a larger default window. Fixes the Manual-mode failures seen on fleet laptops.",
-  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.4.3/EC0.File.Buddy.v1.4.3.zip",
+  "release_date": "2026-09-16",
+  "notes": "Multi-monitor and laptop-dock resilience release: MTExec now always opens on the primary monitor, every MTExec window the automation touches is pulled onto the primary monitor before it is used, window activation can no longer be refused by Windows, and the Datasets Next button has a direct Windows button click as a second method. Fixes the 'file loads but Next never gets clicked' and 'MTExec pops up on the wrong screen' reports from fleet laptops.",
+  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.4.4/EC0.File.Buddy.v1.4.4.zip",
   "changelog": [
+    {
+      "version": "1.4.4",
+      "date": "2026-09-16",
+      "changes": [
+        "MTExec now always opens on the primary monitor. MTExec remembers the screen position it was last closed at (in its own Windows registry entry) and reopens there on every launch, including the relaunches the app does mid-run for restarts and error recovery. Dock or undock a laptop and that remembered spot can land on a second monitor, half off-screen, or too big for the screen. Before every launch the app now checks that remembered position and, if it is not fully on the primary monitor, moves it there and un-minimizes it. The 'open MTExec on your primary display first' ritual is no longer needed.",
+        "Every MTExec window the automation touches (Datasets, Load data file, Report vortex, Time range, Save report, and the rest) is pulled onto the primary monitor and restored from minimized the moment the app activates it. Image recognition can only see the primary monitor, so a dialog that drifted to a second screen was invisible to it before.",
+        "Window activation no longer trips over the Windows foreground lock. When a plain activate is refused, the app uses the thread-attach trick and then the Alt+Tab switch path, and only gives up after all three. A refused activate was a likely cause of 'the file loaded but nothing happened next' on fleet laptops.",
+        "The Next button on the Datasets window has a second method: if the image match fails, the app clicks the real Windows button control directly (no mouse, no screenshot, no template, works on any monitor and at any DPI), then falls back to the keyboard as before. The three separate copies of this logic (regular, individual, and NS0 flows) are now one shared routine.",
+        "Window lookups prefer windows that belong to MTExec.exe. A browser tab or Teams window whose title happened to contain 'Datasets' or 'MTExec' could be picked over the real dialog.",
+        "If the primary-monitor image search misses and more than one monitor is attached, the app searches every monitor and uses the match, but only if that spot belongs to an MTExec window.",
+        "The template matcher always tries the common Windows scale ratios (67%, 80%, 125%, 150%), so a laptop docked to a 100% external monitor still matches templates that were captured at 125%, and the other way round when undocked.",
+        "The startup log and every MTExec launch now record the full monitor layout (count, positions, sizes, per-monitor DPI), so multi-monitor reports can be diagnosed from a pasted log."
+      ]
+    },
     {
       "version": "1.4.3",
       "date": "2026-07-30",
