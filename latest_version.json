@@ -1,10 +1,28 @@
 {
-  "latest_version": "1.4.4",
-  "min_supported": "1.0.0",
-  "release_date": "2026-09-16",
-  "notes": "Multi-monitor and laptop-dock resilience release: MTExec now always opens on the primary monitor, every MTExec window the automation touches is pulled onto the primary monitor before it is used, window activation can no longer be refused by Windows, and the Datasets Next button has a direct Windows button click as a second method. Fixes the 'file loads but Next never gets clicked' and 'MTExec pops up on the wrong screen' reports from fleet laptops.",
-  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.4.4/EC0.File.Buddy.v1.4.4.zip",
+  "latest_version": "1.5.0",
+  "min_supported": "1.5.0",
+  "release_date": "2026-09-30",
+  "notes": "TURBO release. EC0 File Buddy now drives MTExec directly through its own Windows commands instead of screen searches and keystrokes: about 3 to 4 seconds per site instead of about 15, the same on every machine, monitor setup and display scaling. Every step is checked against MTExec, Bellevue masks are verified before they're kept, and any MTExec that doesn't match falls back to the classic method by itself. Required update.",
+  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.5.0/EC0.File.Buddy.v1.5.0.zip",
   "changelog": [
+    {
+      "version": "1.5.0",
+      "date": "2026-09-30",
+      "changes": [
+        "TURBO. EC0 File Buddy now drives MTExec directly with MTExec's own Windows commands, the same messages its buttons send. No screen searches, no keystrokes, no mouse moves, and nothing has to be on screen or in focus. A regular site takes about 3 to 4 seconds instead of about 15, and display scaling, monitor layout and window position no longer matter.",
+        "There is one speed now: Turbo. The speed slider is gone.",
+        "Every step is checked against MTExec before the next one. The EC0 file has to show up in the dataset list, the Time button has to show exactly the target dates, and the report has to be fully built before it is saved. A saved file that comes out incomplete is deleted and the site is flagged, so a half-built report is never left behind.",
+        "Reports are the same as the classic method's (compared line by line on real Bellevue sites). Also tested on real data: one-way in both directions, Cities speed limits, twin sets, every date option, date moves across a month boundary, and a first day the data only partly covers.",
+        "Bellevue .1 reports: the exclusion mask is set directly, and the saved file's header has to show exactly Monday, Friday, Saturday and Sunday excluded. A wrong one is deleted and redone. This also fixes the Bellevue failure at the Clear All step on laptops.",
+        "Safe on other MTExec versions. Before sending MTExec a command, the app confirms from that MTExec's own resources that the command means what Turbo expects, and every button and box is found by its label or contents, not a fixed position. If anything about an MTExec install doesn't match, the app switches that run to the classic method by itself.",
+        "If MTExec has a window open when a site starts (for example a New report someone started by hand), it is restarted clean first. If MTExec gets stuck partway through a report, the site errors within seconds instead of hanging, and the next site gets a fresh MTExec.",
+        "If a Bellevue step fails, the open MTExec dialogs are cancelled and MTExec restarts cleanly before the next site.",
+        "Google Sheet status updates run in the background, so they no longer hold up the next site.",
+        "Individual and NS0 reports (still on the classic method) press the toolbar Save and Local profile buttons directly instead of searching the screen for them, and the Datasets Next button is pressed directly on every path. That removes a pause of about 4 seconds per site on some laptops.",
+        "Mandatory updates. From this version on, the app checks the minimum supported version before it processes. If yours is older, it shows an Update required window with a Download button and won't process until you update. If the update server can't be reached, it doesn't block you.",
+        "New supercharged logo and Turbo look."
+      ]
+    },
     {
       "version": "1.4.4",
       "date": "2026-09-16",
