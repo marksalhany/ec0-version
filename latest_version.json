@@ -1,10 +1,34 @@
 {
-  "latest_version": "1.5.0",
-  "min_supported": "1.5.0",
-  "release_date": "2026-09-30",
-  "notes": "TURBO release. EC0 File Buddy now drives MTExec directly through its own Windows commands instead of screen searches and keystrokes: about 3 to 4 seconds per site instead of about 15, the same on every machine, monitor setup and display scaling. Every step is checked against MTExec, Bellevue masks are verified before they're kept, and any MTExec that doesn't match falls back to the classic method by itself. Required update.",
-  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.5.0/EC0.File.Buddy.v1.5.0.zip",
+  "latest_version": "1.5.1",
+  "min_supported": "1.5.1",
+  "release_date": "2026-10-02",
+  "notes": "Reliability release. Two sites sharing one EC0 file, a one-off MTExec hiccup, or a name with a '/' no longer derail a run or knock it off Turbo. Every saved report is read back and checked before a site counts as done. Stop stops at once, Reset works again, and a new popup after the scan flags tracker and file problems before you process. Required update.",
+  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.5.1/EC0.File.Buddy.v1.5.1.zip",
   "changelog": [
+    {
+      "version": "1.5.1",
+      "date": "2026-10-02",
+      "changes": [
+        "Two sites that use the same EC0 file no longer knock the run off Turbo. MTExec can't load the same file twice in one session, so it now gets restarted before the second load and Turbo carries on. Before, the run fell back to the slow classic method for every site after that.",
+        "A one-off hiccup no longer changes the whole run. If Turbo stumbles on a site, MTExec is restarted and the site is tried again. Only a site that fails twice goes to the classic method, and the run only switches to classic after two such sites.",
+        "Every saved report is read back and checked: made from the right EC0 file, over the right dates, with the right speed limit and one-way direction, and complete. A report that doesn't match is deleted and the site is marked failed, so a wrong report is never left behind as done.",
+        "A report with no vehicles at all in the study period (a failed tube, a bad offload, the wrong box) now fails the site with that reason. The file is kept so you can look at it.",
+        "Stop now stops right away. MTExec is closed at once and nothing more is clicked or typed. Process stays unavailable until the stopped run has actually finished, so two runs can't overlap.",
+        "Reset works again. It was crashing partway through every time, and it could undo a Stop and let a stopped run keep going.",
+        "New 'Check before processing' popup after a scan. It lists one EC0 file matched to two sites (one of those box numbers is wrong in the tracker), a box with more than one file in its pickup folder, EC0 files too small to hold a count, sites with no Date Set, and processing names that had to be changed.",
+        "When a box has more than one EC0 file in its pickup folder, the latest offload is used on purpose and flagged, instead of whichever file happened to come first.",
+        "Processing names with characters Windows doesn't allow in file names (/ \\ : * ? \" < > |) are saved with '-' instead, and the name's cell turns orange. A name with a '/' used to make the save hang and the site fail.",
+        "Sites with no Date Set (or one that can't be read) get one estimated from the other sites picked up in the same folder, or from the pickup date. The Date Set cell turns orange, and Turbo checks the estimate against the counter's real start time and corrects it.",
+        "Date Set entries without a year (like '9/19') are now read.",
+        "Every EC0 file is read before MTExec starts, so Dropbox downloads any online-only file first. A file renamed or moved since the scan fails its site up front with a clear message.",
+        "MTExec gets a moment to finish starting before the first site, and starting a run right after another one no longer stalls for 25 seconds.",
+        "The classic method no longer mistakes the 'Report profile' window for the 'Profile' window, which could put the speed limit in the wrong box.",
+        "Restarting MTExec no longer pulls it in front of what you're doing, and only ever closes MTExec's own windows.",
+        "The Recent dropdowns stay open while you scroll them with the mouse wheel, and fit in the window.",
+        "Cleaner logs: optional image variants and folder names without a date no longer show up as errors.",
+        "Required update: v1.5.0 won't process until you install this version."
+      ]
+    },
     {
       "version": "1.5.0",
       "date": "2026-09-30",
