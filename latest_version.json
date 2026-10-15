@@ -1,10 +1,23 @@
 {
-  "latest_version": "1.5.1",
-  "min_supported": "1.5.1",
-  "release_date": "2026-10-02",
-  "notes": "Reliability release. Two sites sharing one EC0 file, a one-off MTExec hiccup, or a name with a '/' no longer derail a run or knock it off Turbo. Every saved report is read back and checked before a site counts as done. Stop stops at once, Reset works again, and a new popup after the scan flags tracker and file problems before you process. Required update.",
-  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.5.1/EC0.File.Buddy.v1.5.1.zip",
+  "latest_version": "1.5.2",
+  "min_supported": "1.5.2",
+  "release_date": "2026-10-15",
+  "notes": "Updates now install themselves (this is the last one you install by hand). Finished txt files move to the project's txt folder, OmniProcessor can open with them loaded, and the app has a cleaner look. Required update.",
+  "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.5.2/EC0.File.Buddy.v1.5.2.zip",
   "changelog": [
+    {
+      "version": "1.5.2",
+      "date": "2026-10-15",
+      "changes": [
+        "Updates install themselves. A new version downloads in the background. An optional update installs when you close the app, or right away with Restart now. A required update opens a window with Update now: the app closes, installs it and opens again by itself. No more downloading and unzipping. This is the last update you install by hand.",
+        "Finished txt files go to the project's txt folder by themselves. When a run ends, the reports of the sites that finished move from MTExec's Output folder into the project folder's txt folder (made if it isn't there). The folder shows under After Processing, and Change sends a project's reports somewhere else.",
+        "When the txt folder already has reports, this run's files go into a new folder like txt\\Processed 10-15. That option is on by default and shows under After Processing. Untick it to keep everything in txt.",
+        "A report that replaces an older one with the same name (a site processed again) sends the old one to the Recycle Bin, so it can be brought back.",
+        "New option under After Processing: Open the txt files in OmniProcessor when done. EC0 File Buddy finds OmniProcessor on this PC the first time it starts (C:\\IDAX, the Desktop, Downloads, then the whole drive), or use Find or Browse. With it on, a finished run opens OmniProcessor with the files loaded on Sites & Import. If OmniProcessor is already open, it switches to Sites & Import and loads them. Needs OmniProcessor 1.3.13 or later, which installs itself.",
+        "Bellevue .1 files are always named after the processing name plus .1 now. A name with _2 in it (like 6_2nd St) came out as 6.1nd St, so OmniProcessor couldn't pair it with its main file.",
+        "A cleaner look: a sharp IDAX logo on the sidebar, update news under the version number instead of a permanent green bar, icons on every card, and long folder paths that show their end (the project name) instead of the drive."
+      ]
+    },
     {
       "version": "1.5.1",
       "date": "2026-10-02",
@@ -515,5 +528,9 @@
         "Laid down the folder structure."
       ]
     }
-  ]
+  ],
+  "build": "2026-10-15T18:45:55Z",
+  "sha256": "354cb536e589373b3468f4b67fcc78971792905da2436785b9c0408507a05aa4",
+  "mandatory": true,
+  "signature": "YYKPBuPNvUNJkklOqO58UOYhFRWS+Gk5t58nuqDhf/z+Hm06X2upNCF+3Z/OohDUW6gmtsCZ0tz4E+c4MR+8BQ=="
 }
