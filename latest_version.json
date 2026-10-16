@@ -2,13 +2,14 @@
   "latest_version": "1.5.2",
   "min_supported": "1.5.2",
   "release_date": "2026-10-15",
-  "notes": "Updates now install themselves (this is the last one you install by hand). Finished txt files move to the project's txt folder, OmniProcessor can open with them loaded, and the app has a cleaner look. Required update.",
+  "notes": "Updates now install themselves (this is the last one you install by hand). Finished txt files move to the project's txt folder, OmniProcessor can open with them loaded, and the app has a cleaner look. EC0 files named like BOX_ELI now match their box. Required for 1.5.1 and older.",
   "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.5.2/EC0.File.Buddy.v1.5.2.zip",
   "changelog": [
     {
       "version": "1.5.2",
       "date": "2026-10-15",
       "changes": [
+        "EC0 files named with an underscore, like BOX_ELI 0 2026-10-10 1833.EC0, now match their box. Before, the scan said that box was missing.",
         "Updates install themselves. A new version downloads in the background. An optional update installs when you close the app, or right away with Restart now. A required update opens a window with Update now: the app closes, installs it and opens again by itself. No more downloading and unzipping. This is the last update you install by hand.",
         "Finished txt files go to the project's txt folder by themselves. When a run ends, the reports of the sites that finished move from MTExec's Output folder into the project folder's txt folder (made if it isn't there). The folder shows under After Processing, and Change sends a project's reports somewhere else.",
         "When the txt folder already has reports, this run's files go into a new folder like txt\\Processed 10-15. That option is on by default and shows under After Processing. Untick it to keep everything in txt.",
@@ -529,8 +530,8 @@
       ]
     }
   ],
-  "build": "2026-10-15T19:03:28Z",
-  "sha256": "4807b96a491fdcaf5c1980a30fca2989103a5247a4837c564320347b4c4ee972",
-  "mandatory": true,
-  "signature": "/Vd4Ea2YdMg+eENt7iqTUgGpg2y1x2Wos7TpB0doTQGMMYAK3FIVs5RtYoAG1nZyDoYnGFTeVM4Wt32lZNFTAg=="
+  "build": "2026-10-16T22:00:33Z",
+  "sha256": "36d0aa982e1784df07c1a8aaf0ca2dd279fc7b525c3db173e8228fb5d2b8132a",
+  "mandatory": false,
+  "signature": "oEQ1MOmB46v2+SasO2KwwPkeo3YKqVSSRbMVO9oYFBziHJXj/wXPj6ksfh7r+82WobRpsQquOzTVGkz3WzHlCA=="
 }
