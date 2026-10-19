@@ -2,13 +2,15 @@
   "latest_version": "1.5.2",
   "min_supported": "1.5.2",
   "release_date": "2026-10-15",
-  "notes": "Updates now install themselves (this is the last one you install by hand). Finished txt files move to the project's txt folder, OmniProcessor can open with them loaded, and the app has a cleaner look. EC0 files named like BOX_ELI now match their box. Required for 1.5.1 and older.",
+  "notes": "Updates now install themselves (this is the last one you install by hand). Finished txt files move to the project's txt folder, OmniProcessor can open with them loaded, and the app has a cleaner look. EC0 files named like BOX_ELI now match their box. Individual reports now run as fast as regular ones. Required for 1.5.1 and older.",
   "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.5.2/EC0.File.Buddy.v1.5.2.zip",
   "changelog": [
     {
       "version": "1.5.2",
       "date": "2026-10-15",
       "changes": [
+        "Individual reports now run the same way as regular reports: EC0 File Buddy drives MTExec directly, with no mouse, keyboard or screen searches, so you can keep working while they run. The reports come out the same as before, about four times faster, and every saved Individual report is read back and checked like the regular ones.",
+        "NS0 to .PRN mode is gone. It was never used.",
         "EC0 files named with an underscore, like BOX_ELI 0 2026-10-10 1833.EC0, now match their box. Before, the scan said that box was missing.",
         "Updates install themselves. A new version downloads in the background. An optional update installs when you close the app, or right away with Restart now. A required update opens a window with Update now: the app closes, installs it and opens again by itself. No more downloading and unzipping. This is the last update you install by hand.",
         "Finished txt files go to the project's txt folder by themselves. When a run ends, the reports of the sites that finished move from MTExec's Output folder into the project folder's txt folder (made if it isn't there). The folder shows under After Processing, and Change sends a project's reports somewhere else.",
@@ -530,8 +532,8 @@
       ]
     }
   ],
-  "build": "2026-10-16T22:00:33Z",
-  "sha256": "36d0aa982e1784df07c1a8aaf0ca2dd279fc7b525c3db173e8228fb5d2b8132a",
+  "build": "2026-10-19T22:14:33Z",
+  "sha256": "894ebbe3a53f8a7ab80e081249b4a49c36ee1b6f3116e189447feb4de7048f21",
   "mandatory": false,
-  "signature": "oEQ1MOmB46v2+SasO2KwwPkeo3YKqVSSRbMVO9oYFBziHJXj/wXPj6ksfh7r+82WobRpsQquOzTVGkz3WzHlCA=="
+  "signature": "talut19PlGot66A2hUXtxQNz7VeCgnGPk6vZGctEcdj7SAsLrzDBwivoGeihYljiEpg7I6YQRm/vjUEHFh5hBw=="
 }
