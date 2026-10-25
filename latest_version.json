@@ -2,13 +2,15 @@
   "latest_version": "1.5.2",
   "min_supported": "1.5.2",
   "release_date": "2026-10-15",
-  "notes": "Updates now install themselves (this is the last one you install by hand). Finished txt files move to the project's txt folder, OmniProcessor can open with them loaded, and the app has a cleaner look. EC0 files named like BOX_ELI now match their box. Individual reports now run as fast as regular ones. Required for 1.5.1 and older.",
+  "notes": "Updates now install themselves (this is the last one you install by hand). Finished txt files move to the project's txt folder, OmniProcessor can open with them loaded, and the app has a cleaner look. EC0 files named like BOX_ELI now match their box. Individual reports now run as fast as regular ones. The Project Tracker bar now lists and searches your state's trackers. Required for 1.5.1 and older.",
   "download_url": "https://github.com/marksalhany/ec0-version/releases/download/v1.5.2/EC0.File.Buddy.v1.5.2.zip",
   "changelog": [
     {
       "version": "1.5.2",
       "date": "2026-10-15",
       "changes": [
+        "The Project Tracker bar now lists your state's trackers from Google Drive, newest first. Click it and pick one, or type a few letters of the project name or number to narrow the list. The state buttons at the top of the list show another state's trackers. Pasting a link and Use Working Tracker work like before.",
+        "The trackers you opened last show at the top of that list (the separate Recent button for trackers is gone). Once a tracker loads, the bar shows its name instead of its link, and the button next to Use Working Tracker opens it in Google Sheets.",
         "Individual reports now run the same way as regular reports: EC0 File Buddy drives MTExec directly, with no mouse, keyboard or screen searches, so you can keep working while they run. The reports come out the same as before, about four times faster, and every saved Individual report is read back and checked like the regular ones.",
         "NS0 to .PRN mode is gone. It was never used.",
         "EC0 files named with an underscore, like BOX_ELI 0 2026-10-10 1833.EC0, now match their box. Before, the scan said that box was missing.",
@@ -532,8 +534,8 @@
       ]
     }
   ],
-  "build": "2026-10-19T22:14:33Z",
-  "sha256": "894ebbe3a53f8a7ab80e081249b4a49c36ee1b6f3116e189447feb4de7048f21",
+  "build": "2026-10-25T05:57:25Z",
+  "sha256": "79b07ab3d8d3934df166c4f1efc10f9f348fc57620e7bb6ed283a37e3380a5bc",
   "mandatory": false,
-  "signature": "talut19PlGot66A2hUXtxQNz7VeCgnGPk6vZGctEcdj7SAsLrzDBwivoGeihYljiEpg7I6YQRm/vjUEHFh5hBw=="
+  "signature": "QMCRYBca6duTfn5+wUyNDRguvkiqyaKWo7RJtnyTXJ73mU4uxR1t59y+OcW+Gu1EddrL99dlUM42m94Ccz6sAA=="
 }
